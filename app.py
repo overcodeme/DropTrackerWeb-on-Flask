@@ -1,8 +1,9 @@
 from flask import Flask, render_template
+from config import SQLALCHEMY_DATABASE_URI, SQLALCHEMY_TRACK_MODIFICATIONS
 from models import db
 
 def create_app():
-    flask_app = Flask(__name__)
+    app = Flask(__name__)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = SQLALCHEMY_TRACK_MODIFICATIONS
@@ -14,10 +15,10 @@ def create_app():
         return render_template('index.html')
 
 
-    return flask_app
+    return app
 
 
-app = create_app()
+flask_app = create_app()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    flask_app.run(debug=True)

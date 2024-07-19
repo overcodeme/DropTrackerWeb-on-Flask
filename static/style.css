@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid red;
+    width: 90%;
+    margin: auto;
+}
+
+.header-elem {
+    display: flex;
+    border: 1px solid black;
+    margin: 20px;
+}
+
+.header-elem p {
+    margin: 5px;
+}
+
+.projects-list {
+    width: 90%;
+    min-height: 1000px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    border: 1px solid green;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.projects-list div {
+    display: flex;
+    width: 95%;
+    height: 100px;
+    border: 1px solid blue;
+    margin: 20px auto;
+}
