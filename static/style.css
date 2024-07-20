@@ -10,10 +10,13 @@ header {
     display: flex;
     border: 1px solid black;
     margin: 20px;
+    height: 60px;
+    width: 300px;
 }
 
 .header-elem p {
     margin: 5px;
+    width: 60%;
 }
 
 .projects-list {
@@ -33,4 +36,44 @@ header {
     height: 100px;
     border: 1px solid blue;
     margin: 20px auto;
+}
+
+.title-font {
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.flex {
+    display: flex;
+}
+
+.jf-center {
+    justify-content: center;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.fs40px {
+    font-size: 40px;
+}
+
+.fs30px {
+    font-size: 30px;
+}
+
+.fs20px {
+    font-sizr: 20px;
+}
+
+.bold {
+
 }
