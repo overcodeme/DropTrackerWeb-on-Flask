@@ -14,6 +14,7 @@ class CryptoDrop(db.Model):
     joining_date = db.Column(db.DateTime)
     spent = db.Column(db.Float)
     cryptorank_link = db.Column(db.String(200))
+    is_active = db.Column(db.Boolean, default=True)
 
     def __repr__(self):
         return f"<Криптопроект {self.name}>"

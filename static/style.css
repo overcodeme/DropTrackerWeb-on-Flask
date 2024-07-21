@@ -31,6 +31,25 @@ a {
     font-weight: bold;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+.header-elem {
+    display: flex;
+    margin: 20px;
+    height: 60px;
+    width: 300px;
+}
+
+.header-elem p {
+    margin: 5px;
+    width: 60%;
+}
+
 .arrow-up, .arrow-down {
     position: fixed;
     right: 45px; /* Отступ от правого края */
@@ -57,55 +76,34 @@ a {
     height: 100%;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin: auto;
-}
-
-.header-elem {
-    display: flex;
-    margin: 20px;
-    height: 60px;
-    width: 300px;
-}
-
-.header-elem p {
-    margin: 5px;
-    width: 60%;
-}
 
 .search-container {
     display: flex;
-    width: 400px;
+    justify-content: space-evenly;
     align-items: center;
+    width: 89%;
+    padding: 20px;
+    border-radius: 10px;
     background-color: #fff;
-    border-radius: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+                0 6px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
 }
 
 #search-input {
-    border: none;
-    outline: none;
     padding: 10px;
-    border-radius: 30px 0 0 30px;
-    font-size: 16px;
-    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
 }
 
 #search-button {
-    border: none;
-    outline: none;
-    background-color: #007BFF;
-    color: #fff;
     padding: 10px 20px;
-    border-radius: 0 30px 30px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
 }
 
 #search-button:hover {
@@ -113,7 +111,7 @@ header {
 }
 
 .projects-list {
-    width: 80%;
+    width: 90%;
     min-height: 1000px;
     display: flex;
     flex-direction: column;
@@ -138,5 +136,17 @@ header {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
+}
+
+.kanit-reg {
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kanit-bold {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
