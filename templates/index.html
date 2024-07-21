@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Drop List</title>
-    <link rel="stylesheet" href='../static/style.css'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="header-elem jf-center ai-center fs30px">
-            <p align="center" class="title-font"><a href="/" class="underline-none">Все проекты</a></p>
-        </div>
-        <div class="header-elem  jf-center ai-center fs30px">
-            <p align="center" class="title-font">Добавить</p>
-        </div>
-    </header>
-    <hr>
+{% extends 'base.html' %}
+{% block title %}Все проекты{% endblock%}
+
+{% block content %}
     <div class="search-container">
         <input type="text" id="search-input" placeholder="Название проекта">
         <button id="search-button">Поиск</button>
@@ -54,5 +38,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

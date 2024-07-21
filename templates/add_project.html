@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавление проекта{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('add_project') }}" method="POST">
+    <div class="form-group">
+        <label for="name">Название</label>
+        <input type="text" id="name" name="name" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="type">Тип</label>
+        <input type="text" id="type" name="type" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="daily">Дейлик?</label>
+        <select id="daily" name="daily" class="form-control">
+            <option value="">Выберите вариант</option>
+            <option value="Да">Да</option>
+            <option value="Нет">Нет</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="airdrop_status">Статус</label>
+        <select id="airdrop_status" name="airdrop_status" class="form-control">
+            <option value="">Выберите вариант</option>
+            <option value="Подтвержден">Подтвержден</option>
+            <option value="Потенциально">Потенциально</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="fundraising">Инвестиции</label>
+        <input type="number" step="0.1" min="0.1" id="fundraising" name="fundraising" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="joining_date">Дата начала</label>
+        <input type="date" id="joining_date" name="joining_date" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="spent">Потрачено</label>
+        <input type="number" step="0.01" id="spent" name="spent" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="cryptorank_link">Ссылка на Cryptorank</label>
+        <input type="url" id="cryptorank_link" name="cryptorank_link" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="description">Описание</label>
+        <textarea id="description" name="description" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить проект</button>
+</form>
+{% endblock %}
