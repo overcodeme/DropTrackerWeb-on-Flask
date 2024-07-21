@@ -10,9 +10,6 @@
 </head>
 <body>
     <header>
-        <div class="header-elem">
-            <p>Категории тут</p>
-        </div>
         <div class="header-elem jf-center ai-center fs30px">
             <p align="center" class="title-font"><a href="/" class="underline-none">Все проекты</a></p>
         </div>
@@ -20,15 +17,41 @@
             <p align="center" class="title-font">Добавить</p>
         </div>
     </header>
+    <hr>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Название проекта">
+        <button id="search-button">Поиск</button>
+    </div>
+    <div class="arrow-up">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
+        </svg>
+    </div>
+    <div class="arrow-down">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
+        </svg>
+    </div>
     <div class="projects-list">
         <div>
-            <p>Проект 1</p>
-        </div>
-        <div>
-            <p>Проект 2</p>
-        </div>
-        <div>
-            <p>Проект 3</p>
+            <div class="title-font">
+                <p class="fs30px">Название</p>
+            </div>
+            <div class="title-font">
+                <p class="fs30px">Тип</p>
+            </div>
+            <div class="title-font">
+                <p class="fs30px">Фонды</p>
+            </div>
+            <div class="title-font">
+                <p class="fs30px">Инвест</p>
+            </div>
+            <div class="title-font">
+                <p class="fs30px">Cryptorank</p>
+            </div>
+            <div class="title-font">
+                <p class="fs30px">Описание</p>
+            </div>
         </div>
     </div>
 </body>
