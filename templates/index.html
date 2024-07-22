@@ -9,6 +9,11 @@
         </div>
         <div>
             <p class="kanit-bold">
+                Все
+            </p>
+        </div>
+        <div>
+            <p class="kanit-bold">
                 Активные
             </p>
         </div>
@@ -49,25 +54,47 @@
         </a>
     </div>
     <div class="projects-list">
-        <div>
+        <div class="title">
             <div class="title-font">
-                <p class="fs30px">Название</p>
+                <p class="fs20px">Название</p>
             </div>
             <div class="title-font">
-                <p class="fs30px">Тип</p>
+                <p class="fs20px">Тип</p>
             </div>
             <div class="title-font">
-                <p class="fs30px">Фонды</p>
+                <p class="fs20px">Дейлик</p>
             </div>
             <div class="title-font">
-                <p class="fs30px">Инвест</p>
+                <p class="fs20px">Статус аирдропа</p>
             </div>
             <div class="title-font">
-                <p class="fs30px">Cryptorank</p>
+                <p class="fs20px">Дата входа</p>
             </div>
             <div class="title-font">
-                <p class="fs30px">Описание</p>
+                <p class="fs20px">Cryptorank</p>
             </div>
         </div>
+        {% for project in projects %}
+        <div class="project-item">
+            <div class="project-field fs20px">
+                <p>{{ project.name }}</p>
+            </div>
+            <div class="project-field fs20px">
+                <p>{{ project.type }}</p>
+            </div>
+            <div class="project-field fs20px">
+                <p>{{ project.daily }}</p>
+            </div>
+            <div class="project-field fs20px">
+                <p>{{ project.airdrop_status }}</p>
+            </div>
+            <div class="project-field fs20px">
+                <p>{{ project.joining_date.strftime('%Y-%m-%d') if project.joining_date else 'Не указана' }}</p>
+            </div>
+            <div class="project-field fs20px">
+                <a href="{{ project.cryptorank_link }}" target="_blank">Ссылка</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 {% endblock %}
