@@ -77,7 +77,7 @@
         {% for project in projects %}
         <div class="project-item">
             <div class="project-field fs20px">
-                <p>{{ project.name }}</p>
+                <a href="{{ url_for('project_detail', project_name=project.name) }}"><p>{{ project.name }}</p></a>
             </div>
             <div class="project-field fs20px">
                 <p>{{ project.type }}</p>

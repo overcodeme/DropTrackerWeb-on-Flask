@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from config import SQLALCHEMY_DATABASE_URI, SQLALCHEMY_TRACK_MODIFICATIONS
-from models import db, CryptoProject
+from models import db, CryptoProject, ProjectActivity
 from datetime import datetime
 
 def create_app():
@@ -50,6 +50,12 @@ def create_app():
             return redirect(url_for('index'))
 
         return render_template('add_project.html')
+
+    @app.route('/project/<string:project_name>')
+    def project_detail(project_name):
+        project = CryptoProject.query.filter_by(name=project_name).first_or_404()
+        activities = ProjectActivity.query.filter_by(project_id=project.id).all()
+        return render_template('project_detail.html', project=project, activities=activities)
 
     return app
 

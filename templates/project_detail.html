@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ project.name }} - Подробности{% endblock %}
+
+{% block content %}
+<div class="project-details">
+    <h1>{{ project.name }}</h1>
+    <p><strong>Тип:</strong> {{ project.type }}</p>
+    <p><strong>Дейлик:</strong> {{ project.daily }}</p>
+    <p><strong>Статус аирдропа:</strong> {{ project.airdrop_status }}</p>
+    <p><strong>Дата начала:</strong> {{ project.joining_date.strftime('%Y-%m-%d') if project.joining_date else 'N/A' }}</p>
+    <p><strong>Потрачено:</strong> {{ project.spent }}$</p>
+    <p><strong>Ссылка на Cryptorank:</strong> <a href="{{ project.cryptorank_link }}" target="_blank">{{ project.cryptorank_link }}</a></p>
+    <p><strong>Активный:</strong> {{ project.is_active }}</p>
+    <p><strong>Описание:</strong> {{ project.description }}</p>
+
+    <h2>Активности</h2>
+    {% if activities %}
+        <ul>
+        {% for activity in activities %}
+            <li>{{ activity.description }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Активности отсутствуют.</p>
+    {% endif %}
+</div>
+{% endblock %}
