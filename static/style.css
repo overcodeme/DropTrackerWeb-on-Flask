@@ -36,6 +36,7 @@ header {
     justify-content: space-between;
     width: 90%;
     margin: auto;
+    align-items: center;
 }
 
 .header-elem {
@@ -48,6 +49,25 @@ header {
 .header-elem p {
     margin: 5px;
     width: 60%;
+}
+
+.header-title {
+    font-family: 'Kanit', sans-serif;
+    font-size: 40px;
+    color: #007bff;
+    animation: fadeIn 3s ease-in-out;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .arrow-up, .arrow-down {
@@ -148,5 +168,62 @@ header {
   font-family: "Kanit", sans-serif;
   font-weight: 700;
   font-style: normal;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.is-invalid {
+    border-color: #e3342f;
 }
 
