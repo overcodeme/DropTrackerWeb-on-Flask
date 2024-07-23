@@ -223,7 +223,7 @@ header {
 
 /* Выделение строк для дейликов */
 .projects-table tr.highlight {
-    background-color: #fffae6 !important; /* Цвет для дейликов с !important */
+    background-color: #FFDEAD !important; /* Цвет для дейликов с !important */
 }
 
 /* Стили для ссылок в таблице */

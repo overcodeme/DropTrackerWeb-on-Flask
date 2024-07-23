@@ -26,8 +26,8 @@
         <div class="form-group">
             <label for="daily">Дейлик?</label>
             <select id="daily" name="daily" class="form-control">
-                <option value="1" {% if project.daily == 1 %}selected{% endif %}>Да</option>
-                <option value="0" {% if project.daily == 0 %}selected{% endif %}>Нет</option>
+                <option value=1 {% if project.daily == 1 %}selected{% endif %}>Да</option>
+                <option value=0 {% if project.daily == 0 %}selected{% endif %}>Нет</option>
             </select>
         </div>
         <div class="form-group">

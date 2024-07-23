@@ -26,7 +26,7 @@ def create_app():
             name = request.form['name']
             type_ = request.form['type']
             daily = request.form['daily']
-            daily = 1 if daily=='Да' else '0'
+            daily = 1 if daily=='Да' else 0
             airdrop_status = request.form.get('airdrop_status')
             description = request.form.get('description')
             joining_date = request.form.get('joining_date')
@@ -83,7 +83,7 @@ def create_app():
         if request.method == 'POST':
             project.name = request.form['name']
             project.type = request.form['type']
-            project.daily = 1 if request.form.get('daily') == 'Да' else 0
+            project.daily = int(request.form.get('daily'))
             project.airdrop_status = request.form.get('airdrop_status')
             project.description = request.form.get('description')
             project.joining_date = datetime.strptime(request.form.get('joining_date'), '%Y-%m-%d') if request.form.get(
