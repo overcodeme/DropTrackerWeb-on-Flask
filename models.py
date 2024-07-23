@@ -26,8 +26,7 @@ class ProjectActivity(db.Model):
     __tablename__ = 'project_activity'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.Text)
-    date = db.Column(db.DateTime)
+    link = db.Column(db.String(200), nullable=False)
     project_id = db.Column(db.Integer, db.ForeignKey('crypto_project.id'), nullable=False)
 
     def __repr__(self):

@@ -1,28 +1,47 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ project.name }} - Подробности{% endblock %}
+{% block title %}Детали проекта{% endblock %}
 
 {% block content %}
-<div class="project-details">
-    <h1>{{ project.name }}</h1>
-    <p><strong>Тип:</strong> {{ project.type }}</p>
-    <p><strong>Дейлик:</strong> {{ project.daily }}</p>
-    <p><strong>Статус аирдропа:</strong> {{ project.airdrop_status }}</p>
-    <p><strong>Дата начала:</strong> {{ project.joining_date.strftime('%Y-%m-%d') if project.joining_date else 'N/A' }}</p>
-    <p><strong>Потрачено:</strong> {{ project.spent }}$</p>
-    <p><strong>Ссылка на Cryptorank:</strong> <a href="{{ project.cryptorank_link }}" target="_blank">{{ project.cryptorank_link }}</a></p>
-    <p><strong>Активный:</strong> {{ project.is_active }}</p>
-    <p><strong>Описание:</strong> {{ project.description }}</p>
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="display-4">{{ project.name }}</h1>
+            <p><strong>Тип:</strong> {{ project.type }}</p>
+            <p><strong>Дейлик:</strong> {{ 'Да' if project.daily else 'Нет' }}</p>
+            <p><strong>Статус аирдропа:</strong> {{ project.airdrop_status }}</p>
+            <p><strong>Дата начала:</strong> {{ project.joining_date.strftime('%Y-%m-%d') if project.joining_date else 'Не указана' }}</p>
+            <p><strong>Потрачено:</strong> {{ project.spent }}</p>
+            <p><strong>Ссылка на Cryptorank:</strong> <a href="{{ project.cryptorank_link }}" target="_blank">{{ project.cryptorank_link }}</a></p>
+            <p><strong>Активен:</strong> {{ 'Да' if project.is_active else 'Нет' }}</p>
+            <p><strong>Описание:</strong> {{ project.description }}</p>
 
-    <h2>Активности</h2>
-    {% if activities %}
-        <ul>
-        {% for activity in activities %}
-            <li>{{ activity.description }}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>Активности отсутствуют.</p>
-    {% endif %}
+            <a href="{{ url_for('edit_project', project_name=project.name) }}" class="btn btn-primary mt-3">Изменить</a>
+        </div>
+
+        <div class="col-md-4">
+            <h2>Активности</h2>
+            <ul class="list-group">
+                {% for activity in activities %}
+                <li class="list-group-item">
+                    <a href="{{ activity.link }}" target="_blank">{{ activity.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <form action="{{ url_for('project_detail', project_name=project.name) }}" method="POST" class="mt-4">
+        <h2>Добавить активность</h2>
+        <div class="form-group">
+            <label for="name">Название активности</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="link">Ссылка на активность</label>
+            <input type="url" id="link" name="link" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success">Добавить активность</button>
+    </form>
 </div>
 {% endblock %}

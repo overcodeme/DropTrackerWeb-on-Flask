@@ -72,15 +72,15 @@ header {
 
 .arrow-up, .arrow-down {
     position: fixed;
-    right: 45px; /* Отступ от правого края */
+    right: 1px; /* Отступ от правого края */
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%; /* Делает блок кругом */
     background-color: white;
     cursor: pointer; /* Указатель при наведении */
-    width: 80px; /* Ширина блока */
-    height: 80px; /* Высота блока */
+    width: 50px; /* Ширина блока */
+    height: 50px; /* Высота блока */
 }
 
 .arrow-up {
@@ -108,6 +108,12 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
                 0 6px 20px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-evenly;
+    width: 700px;
 }
 
 #search-input {
@@ -177,6 +183,60 @@ header {
     border: 1px solid green;
 }
 
+.arrow-up, .arrow-down {
+    text-align: center;
+    margin: 20px;
+    transition: fill 0.3s;
+}
+
+.arrow-up a:hover svg, .arrow-down a:hover svg {
+    fill: #007bff; /* Цвет при наведении */
+}
+
+/* Стили для таблицы проектов */
+.projects-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: 'Roboto', sans-serif; /* Пример использования Google Font */
+}
+
+.projects-table thead {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.projects-table th, .projects-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.projects-table th {
+    font-size: 18px; /* Размер шрифта для заголовков */
+}
+
+.projects-table td {
+    font-size: 14px; /* Размер шрифта для данных */
+}
+
+/* Выделение строк для дейликов */
+.projects-table tr.highlight {
+    background-color: #fffae6 !important; /* Цвет для дейликов с !important */
+}
+
+/* Стили для ссылок в таблице */
+.projects-table a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.projects-table a:hover {
+    text-decoration: underline;
+}
+
 .project-field {
    display: flex;
    align-items: center;
@@ -209,6 +269,29 @@ header {
 h1 {
     text-align: center;
     color: #333;
+}
+
+.project-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.project-info,
+.project-activities {
+    width: 48%;
+}
+
+.btn-2 {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-2:hover {
+    background-color: #0056b3;
 }
 
 .form-group {
@@ -252,5 +335,47 @@ h1 {
 
 .is-invalid {
     border-color: #e3342f;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.display-4 {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.list-group-item {
+    border: none;
+    padding: 10px 15px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
 }
 
