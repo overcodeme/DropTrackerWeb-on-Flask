@@ -47,7 +47,7 @@
                 <tr>
                     <th>Название</th>
                     <th>Тип</th>
-                    <th>Статус аирдропа</th>
+                    <th>Аирдроп</th>
                     <th>Дата входа</th>
                     <th>Cryptorank</th>
                     <th>Описание</th>
@@ -59,7 +59,7 @@
                 <td><a href="{{ url_for('project_detail', project_name=project.name) }}">{{ project.name }}</a></td>
                 <td>{{ project.type }}</td>
                 <td>{{ project.airdrop_status }}</td>
-                <td>{{ project.joining_date.strftime('%Y-%m-%d') if project.joining_date else 'Не указана' }}</td>
+                <td>{{ project.joining_date.strftime('%d.%m.%Y') if project.joining_date else 'Не указана' }}</td>
                 <td><a href="{{ project.cryptorank_link }}" target="_blank">Ссылка</a></td>
                 <td>{{ project.description }}</td>
             </tr>

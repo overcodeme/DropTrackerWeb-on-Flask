@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from config import SQLALCHEMY_DATABASE_URI, SQLALCHEMY_TRACK_MODIFICATIONS
-from models import db, CryptoProject, ProjectActivity
+from models import db, CryptoProject, ProjectLinks, MoneyWay
 from flask_migrate import Migrate
 from datetime import datetime
 import secrets
@@ -62,7 +62,7 @@ def create_app():
             activity_name = request.form['name']
             activity_link = request.form['link']
 
-            new_activity = ProjectActivity(
+            new_activity = ProjectLinks(
                 project_id = project.id,
                 name = activity_name,
                 link = activity_link
@@ -73,8 +73,9 @@ def create_app():
             flash('Активность успешно добавлена', 'success')
             return redirect(url_for('project_detail', project_name=project_name))
 
-        activities = ProjectActivity.query.filter_by(project_id=project.id).all()
-        return render_template('project_detail.html', project=project, activities=activities)
+        activities = ProjectLinks.query.filter_by(project_id=project.id).all()
+        moneyways = MoneyWay.query.filter_by(project_id=project.id).all()
+        return render_template('project_detail.html', project=project, activities=activities, moneyways=moneyways)
 
     @app.route('/edit_project/<string:project_name>', methods=['GET', 'POST'])
     def edit_project(project_name):
@@ -86,9 +87,8 @@ def create_app():
             project.daily = int(request.form.get('daily'))
             project.airdrop_status = request.form.get('airdrop_status')
             project.description = request.form.get('description')
-            project.joining_date = datetime.strptime(request.form.get('joining_date'), '%Y-%m-%d') if request.form.get(
+            project.joining_date = datetime.strptime(request.form.get('joining_date'), '%d.%m.%Y') if request.form.get(
                 'joining_date') else None
-            project.spent = float(request.form.get('spent'))
             project.cryptorank_link = request.form.get('cryptorank_link')
             project.is_active = 'is_active' in request.form
 
