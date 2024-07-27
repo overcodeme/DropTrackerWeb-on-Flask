@@ -4,67 +4,14 @@
 
 {% block content %}
 <div class="container">
-    <div class="title-block">
-        <div>
-            <p class="fs40px">
-                {{ project.name }}
-            </p>
-        </div>
-        <div>
-            <a href="{{ url_for('edit_project', project_name=project.name) }}" class="btn btn-primary">
-                    Изменить
-            </a>
-        </div>
+    <div>
+        <h1 class="kanit-bold">{{ project.name }}</h1>
     </div>
     <div>
-        <div class="category">
-            <p>
-                {{  project.type }}
-            </p>
-            <p>
-                Траты: {{ project.spent }}
-            </p>
-            <p>
-                {{ 'Активный' if project.is_active else 'Завершён' }}
-            </p>
-            <p>
-                <a href="{{ project.cryptorank_link }}">Cryptorank</a>
-            </p>
-            {% if project.daily %}
-                <p>Дейлик</p>
-            {% endif %}
-            {% if project.airdrop_status == 'Подтвержден'%}
-                <p>Аирдроп подтверждён</p>
-            {% endif %}
-        </div>
-        <div>
-            <p><strong>Дата входа:</strong> {{ project.joining_date.strftime('%d.%m.%Y') if project.joining_date else 'Не указана' }}</p>
-            <p><strong>Описание:</strong> {{ project.description }}</p>
-        </div>
 
-        <div>
-            <h2>Активности</h2>
-            <ul class="list-group">
-                {% for activity in activities %}
-                <li class="list-group-item">
-                    <a href="{{ activity.link }}" target="_blank">{{ activity.name }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
     </div>
+    <div>
 
-    <form action="{{ url_for('project_detail', project_name=project.name) }}" method="POST" class="mt-4">
-        <h2>Добавить активность</h2>
-        <div class="form-group">
-            <label for="name">Название активности</label>
-            <input type="text" id="name" name="name" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="link">Ссылка на активность</label>
-            <input type="url" id="link" name="link" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-success">Добавить активность</button>
-    </form>
+    </div>
 </div>
 {% endblock %}

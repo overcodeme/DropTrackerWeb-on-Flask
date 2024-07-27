@@ -339,9 +339,24 @@ h1 {
 
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 90%;
     margin: auto;
+}
+
+.container div {
+    margin: 20px;
+    width: 33%;
+    display: flex;
+    border-radius: 30px;
+    border: 1px solid black;
+    min-height: 700px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.container h1 {
+
 }
 
 .category {
@@ -373,7 +388,7 @@ h1 {
 .title-block {
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+    height: 100px;
 }
 
 .title-block div {
@@ -382,7 +397,13 @@ h1 {
     align-items: center;
 }
 
-.title-block div p{
-
+.category p {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
 }
 
+.project_detail {
+    display: flex;
+    flex-direction: row;
+}
