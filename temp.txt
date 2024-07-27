@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block content %}
+<div class="category">
+    <p>
+        Вход в проект: {{project.joining_date}}
+    </p>
+    {% if project.airdrop_status == 1 %}
+        <p>
+            Аирдроп подтверждён
+        </p>
+    {% endif %}
+</div>
+<div class="container">
+    <div>
+        <p class="kanit-bold fs40px">{{ project.name }}</p>
+        <p class="kanit-bold fs20px"><a href="{{ project.cryptorank_link }}">Cryptorank</a></p>
+    </div>
+    <div>
+
+    </div>
+    <div>
+
+    </div>
+</div>
+{% endblock %}

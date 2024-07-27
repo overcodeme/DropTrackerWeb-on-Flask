@@ -3,9 +3,42 @@
 {% block title %}{{ project.name }}{% endblock %}
 
 {% block content %}
+<div class="category">
+    {% if project.is_active %}
+        <p class="kanit-reg green_back">
+            Активный
+        </p>
+    {% else %}
+        <p class="kanit-reg red_back">
+            Завершён
+        </p>
+    {% endif %}
+    <p class="kanit-reg">
+        Вход в проект: {{ project.joining_date.strftime('%d.%m.%Y') if project.joining_date else 'N/A' }}
+    </p>
+    {% if project.cryptorank_link %}
+        <p class="kanit-reg">
+            <a href="{{ project.cryptorank_link }}">Cryptorank</a>
+        </p>
+    {% endif %}
+    {% if project.airdrop_status %}
+        <p class="kanit-reg green_back">
+            Аирдроп подтверждён
+        </p>
+    {% endif %}
+    {% if project.daily %}
+        <p class="kanit-reg">
+            Дейлик
+        </p>
+    {% endif %}
+    <p class="kanit-reg">
+        {{ project.type }}
+    </p>
+</div>
 <div class="container">
     <div>
-        <h1 class="kanit-bold">{{ project.name }}</h1>
+        <p class="kanit-bold fs50px">{{ project.name }}</p>
+        <p class="kanit-bold fs20px"><a href="{{ project.cryptorank_link }}">Cryptorank</a></p>
     </div>
     <div>
 
