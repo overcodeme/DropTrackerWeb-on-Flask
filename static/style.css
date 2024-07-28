@@ -35,6 +35,15 @@ a {
     font-weight: bold;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
+.border-bot {
+    border-bottom: 3px solid black;
+}
+
+
 header {
     display: flex;
     justify-content: space-between;
@@ -344,11 +353,11 @@ h1 {
 .container {
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 95%;
     margin: auto;
 }
 
-.container div {
+.project-detail-block {
     margin: 20px;
     width: 33%;
     display: flex;
@@ -361,6 +370,32 @@ h1 {
     justify-content: flex-start;
 }
 
+.moneyways {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    width: 97%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.moneyways div {
+   display: flex;
+    width: 48%;
+    min-height: 100px;
+    border: 1px solid black;
+}
+
+.edit-buttons {
+    display: flex;
+    position: absolute;
+    top: 270px;
+    right: 630px;
+}
+
+.edit-buttons svg {
+    margin: 5px;
+}
 
 .category {
     display: flex;

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from config import SQLALCHEMY_DATABASE_URI, SQLALCHEMY_TRACK_MODIFICATIONS
-from models import db, CryptoProject, ProjectLinks, MoneyWay
+from models import db, CryptoProject, ProjectLinks, MoneyWay, Thoughts
 from flask_migrate import Migrate
 from datetime import datetime
 import secrets
