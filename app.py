@@ -98,6 +98,13 @@ def create_app():
 
         return render_template('edit_project.html', project=project)
 
+    @app.route('/delete_project/<string:project_name>', methods=['POST'])
+    def delete_project(project_name):
+        project = CryptoProject.query.filter_by(name=project_name).first_or_404()
+        db.session.delete(project)
+        db.session.commit()
+        return redirect(url_for('index'))
+
     return app
 
 flask_app = create_app()

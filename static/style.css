@@ -307,6 +307,13 @@ h1 {
     background-color: #0056b3;
 }
 
+.btn-3 {
+    cursor: pointer;
+    transition: 0.1s linear;
+    border: none;
+    background-color: white;
+}
+
 .form-group {
     margin-bottom: 15px;
 }
