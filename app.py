@@ -73,6 +73,13 @@ def create_app():
             flash('Активность успешно добавлена', 'success')
             return redirect(url_for('project_detail', project_name=project_name))
 
+        elif request.method == 'POST':
+            thoughts = request.form['thoughts']
+
+            new_thoughts = Thoughts(
+
+            )
+
         activities = ProjectLinks.query.filter_by(project_id=project.id).all()
         moneyways = MoneyWay.query.filter_by(project_id=project.id).all()
         return render_template('project_detail.html', project=project, activities=activities, moneyways=moneyways)

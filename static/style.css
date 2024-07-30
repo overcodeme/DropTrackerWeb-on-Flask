@@ -377,6 +377,31 @@ h1 {
     justify-content: flex-start;
 }
 
+.project-detail-block div{
+   display: flex;
+   width: 80%;
+   border-radius: 15px;
+   justify-content: center;
+   margin: 10px;
+}
+
+.project-detail-block form {
+    display: flex;
+    height: 400px;
+    width: 100%;
+}
+
+.border-green {
+    border: 1px solid green;
+}
+
+.textarea{
+    margin: auto;
+    width: 100%;
+    height: 60%;
+    border-radius: 5px;
+}
+
 .moneyways {
     display: flex;
     flex-direction: row;
@@ -460,4 +485,16 @@ h1 {
 
 .red-back {
     background-color: red;
+}
+
+.thoughts-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%%;
+    height: 100%
+}
+
+.thoughts svg {
+
 }
