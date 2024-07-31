@@ -3,6 +3,10 @@ a {
     color: black;
 }
 
+.column {
+    flex-direction: column;
+}
+
 .flex {
     display: flex;
 }
@@ -385,12 +389,6 @@ h1 {
    margin: 10px;
 }
 
-.project-detail-block form {
-    display: flex;
-    height: 400px;
-    width: 100%;
-}
-
 .border-green {
     border: 1px solid green;
 }
@@ -487,14 +485,17 @@ h1 {
     background-color: red;
 }
 
-.thoughts-form {
+#thoughtsForm {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    width: 100%%;
-    height: 100%
+    height: 400px;
+    width: 100%;
 }
 
-.thoughts svg {
-
+#button3 {
+    position: absolute;
+    top: 530px;
+    right: 682px;
 }

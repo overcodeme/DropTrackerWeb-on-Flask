@@ -58,7 +58,19 @@ def create_app():
     @app.route('/project/<string:project_name>', methods=['GET', 'POST'])
     def project_detail(project_name):
         project = CryptoProject.query.filter_by(name=project_name).first_or_404()
-        if request.method == 'POST':
+        if request.method == 'POST' and 'thoughts' in request.form:
+            thoughts = request.form['thoughts']
+
+            new_thoughts = Thoughts(
+                project_id = project.id,
+                description = thoughts
+            )
+
+            db.session.add(new_thoughts)
+            db.session.commit()
+            flash('Пометка о проекте успешно добавлена', 'success')
+
+        elif request.method == 'POST':
             activity_name = request.form['name']
             activity_link = request.form['link']
 
@@ -73,16 +85,10 @@ def create_app():
             flash('Активность успешно добавлена', 'success')
             return redirect(url_for('project_detail', project_name=project_name))
 
-        elif request.method == 'POST':
-            thoughts = request.form['thoughts']
-
-            new_thoughts = Thoughts(
-
-            )
-
         activities = ProjectLinks.query.filter_by(project_id=project.id).all()
         moneyways = MoneyWay.query.filter_by(project_id=project.id).all()
-        return render_template('project_detail.html', project=project, activities=activities, moneyways=moneyways)
+        thoughts = Thoughts.query.filter_by(project_id=project.id).all()
+        return render_template('project_detail.html', project=project, activities=activities, moneyways=moneyways, thoughts=thoughts)
 
     @app.route('/edit_project/<string:project_name>', methods=['GET', 'POST'])
     def edit_project(project_name):
