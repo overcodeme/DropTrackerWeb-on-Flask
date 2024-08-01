@@ -42,16 +42,16 @@
             <input type="date" id="joining_date" name="joining_date" class="form-control" value="{{ project.joining_date.strftime('%Y-%m-%d') if project.joining_date else '' }}">
         </div>
         <div class="form-group">
-            <label for="spent">Потрачено</label>
-            <input type="number" step="0.1" min="0" id="spent" name="spent" class="form-control" value="{{ project.spent }}">
-        </div>
-        <div class="form-group">
             <label for="cryptorank_link">Ссылка на Cryptorank</label>
             <input type="url" id="cryptorank_link" name="cryptorank_link" class="form-control" value="{{ project.cryptorank_link }}">
         </div>
         <div class="form-group">
             <label for="description">Описание</label>
             <textarea id="description" name="description" class="form-control">{{ project.description }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="thoughts">Мысли о проекте</label>
+            <textarea id="thoughts" name="thoughts" class="form-control">{{ project.thoughts }}</textarea>
         </div>
         <div class="form-group">
             <label for="is_active">Активен?</label>
