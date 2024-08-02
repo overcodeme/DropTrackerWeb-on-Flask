@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from config import SQLALCHEMY_DATABASE_URI, SQLALCHEMY_TRACK_MODIFICATIONS
-from models import db, CryptoProject
+from models import db, CryptoProject, ProjectLinks
 from flask_migrate import Migrate
 from datetime import datetime
 import secrets
@@ -56,10 +56,27 @@ def create_app():
     @app.route('/project/<string:project_name>', methods=['GET', 'POST'])
     def project_detail(project_name):
         project = CryptoProject.query.filter_by(name=project_name).first_or_404()
+        links = ProjectLinks.query.filter_by(id=project.id).all()
 
 
+        if request.method == 'POST':
+            activity_name = request.form['activity_name']
+            activity_link = request.form['activity_link']
+            creating_date = datetime.now().strftime('%Y-%m-%d')
 
-        return render_template('project_detail.html', project=project)
+            new_link = ProjectLinks(
+                activity_name=activity_name,
+                activity_link=activity_link,
+                creating_date=creating_date,
+                project_id=project.id
+            )
+
+            db.session.add(new_link)
+            db.session.commit()
+
+            return redirect(url_for('index'))
+
+        return render_template('project_detail.html', project=project, links=links)
 
     @app.route('/edit_project/<string:project_name>', methods=['GET', 'POST'])
     def edit_project(project_name):

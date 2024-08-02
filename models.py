@@ -28,6 +28,7 @@ class ProjectLinks(db.Model):
     activity_name = db.Column(db.String(100))
     activity_link = db.Column(db.String(100))
     project_id = db.Column(db.Integer, db.ForeignKey('crypto_project.id'), nullable=False)
+    creating_date = db.Column(db.String)
 
     def __repr__(self):
         return f"{self.activity_name}"
