@@ -4,13 +4,13 @@
 
 {% block content %}
 <div class="form-container">
-    <h1>Редактирование проекта "{{ project.name }}"</h1>
+    <h1 class="kanit-bold">Редактирование проекта "{{ project.name }}"</h1>
     <form action="{{ url_for('edit_project', project_name=project.name) }}" method="POST" id="projectForm">
-        <div class="form-group">
+        <div class="form-group kanit-reg">
             <label for="name">Название</label>
             <input type="text" id="name" name="name" class="form-control" value="{{ project.name }}" required>
         </div>
-        <div class="form-group">
+        <div class="form-group kanit-reg">
             <label for="type">Тип</label>
             <select id="type" name="type" class="form-control">
                 <option value="Тестнет" {% if project.type == 'Тестнет' %}selected{% endif %}>Тестнет</option>
@@ -23,37 +23,37 @@
                 <option value="Баунти платформы" {% if project.type == 'Баунти платформы' %}selected{% endif %}>Баунти платформы</option>
             </select>
         </div>
-        <div class="form-group">
+        <div class="form-group kanit-reg">
             <label for="daily">Дейлик?</label>
             <select id="daily" name="daily" class="form-control">
                 <option value=1 {% if project.daily == 1 %}selected{% endif %}>Да</option>
                 <option value=0 {% if project.daily == 0 %}selected{% endif %}>Нет</option>
             </select>
         </div>
-        <div class="form-group">
+        <div class="form-group kanit-reg">
             <label for="airdrop_status">Статус аирдропа</label>
             <select id="airdrop_status" name="airdrop_status" class="form-control">
                 <option value="Подтвержден" {% if project.airdrop_status == 'Подтвержден' %}selected{% endif %}>Подтвержден</option>
                 <option value="Потенциально" {% if project.airdrop_status == 'Потенциально' %}selected{% endif %}>Потенциально</option>
             </select>
         </div>
-        <div class="form-group">
+        <div class="form-group kanit-reg">
             <label for="joining_date">Дата входа</label>
             <input type="date" id="joining_date" name="joining_date" class="form-control" value="{{ project.joining_date.strftime('%Y-%m-%d') if project.joining_date else '' }}">
         </div>
-        <div class="form-group">
+        <div class="form-group kanit-reg">
             <label for="cryptorank_link">Ссылка на Cryptorank</label>
             <input type="url" id="cryptorank_link" name="cryptorank_link" class="form-control" value="{{ project.cryptorank_link }}">
         </div>
-        <div class="form-group">
+        <div class="form-group kanit-reg">
             <label for="description">Описание</label>
             <textarea id="description" name="description" class="form-control">{{ project.description }}</textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group kanit-reg">
             <label for="thoughts">Мысли о проекте</label>
             <textarea id="thoughts" name="thoughts" class="form-control">{{ project.thoughts }}</textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group kanit-reg">
             <label for="is_active">Активен?</label>
             <input type="checkbox" id="is_active" name="is_active" class="form-check-input" {% if project.is_active %}checked{% endif %}>
         </div>

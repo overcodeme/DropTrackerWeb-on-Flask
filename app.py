@@ -58,11 +58,10 @@ def create_app():
         project = CryptoProject.query.filter_by(name=project_name).first_or_404()
         links = ProjectLinks.query.filter_by(id=project.id).all()
 
-
         if request.method == 'POST':
             activity_name = request.form['activity_name']
             activity_link = request.form['activity_link']
-            creating_date = datetime.now().strftime('%Y-%m-%d')
+            creating_date = datetime.now().strftime('%d-%m-%Y')
 
             new_link = ProjectLinks(
                 activity_name=activity_name,
@@ -101,10 +100,19 @@ def create_app():
 
     @app.route('/delete_project/<string:project_name>', methods=['POST'])
     def delete_project(project_name):
-        project = CryptoProject.query.filter_by(name=project_name).first_or_404()
+        project = CryptoProject.query.get(project_name)
         db.session.delete(project)
         db.session.commit()
         return redirect(url_for('index'))
+
+
+    @app.route('/delete_activity/<int:activity_id>', methods=['POST'])
+    def delete_activity(activity_id):
+        activity = ProjectLinks.query.get(activity_id)
+        db.session.delete(activity)
+        db.session.commit()
+        return redirect(url_for('index'))
+
 
     return app
 

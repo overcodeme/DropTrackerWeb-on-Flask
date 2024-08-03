@@ -38,7 +38,7 @@
 <div class="container">
     <div class="project-detail-block">
         <p class="kanit-bold fs40px border-bot">Активности</p>
-        <div class="border-green">
+        <div class="border-green kanit-reg">
             <form action="{{ url_for('project_detail', project_name=project.name) }}" method="POST">
                 <div class="form-group">
                     <input type="text" id="activity_name" name="activity_name" class="form-control" placeholder="Название">
@@ -57,16 +57,23 @@
             </form>
         </div>
         {% for link in links %}
-        <div class="border-green">
+        <div class="kanit-reg">
+            <p>{{ link.id }}</p>
             <div class="border-green">
-                <p>{{ link.activity_name }}</p>
+                <p>
+                    {{ link.activity_name }}&nbsp-&nbsp<a href="{{ link.activity_link }}">{{ link.activity_link }}</a><br>
+                    {{ link.creating_date }}
+                </p>
             </div>
-            <div class="border-green">
-                <p>{{ link.activity_link }}</p>
-            </div>
-            <div class="border-green">
-                <p>{{ link.creating_date }}</p>
-            </div>
+            <form action="{{ url_for('delete_activity', activity_id=link.id) }}" method="POST">
+                <p>
+                    <button type="submit" class="btn-3" id="deleteActivity">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"></path>
+                        </svg>
+                     </button>
+                </p>
+            </form>
         </div>
         {% endfor %}
     </div>
