@@ -14,7 +14,7 @@
         </p>
     {% endif %}
     <p class="kanit-reg">
-        Вход в проект: {{ project.joining_date.strftime('%d.%m.%Y') if project.joining_date else 'N/A' }}
+        {{ project.type }}
     </p>
     {% if project.cryptorank_link %}
         <p class="kanit-reg">
@@ -32,12 +32,13 @@
         </p>
     {% endif %}
     <p class="kanit-reg">
-        {{ project.type }}
+        Вход в проект: {{ project.joining_date.strftime('%d.%m.%Y') if project.joining_date else 'N/A' }}
     </p>
+
 </div>
 <div class="container">
     <div class="project-detail-block">
-        <p class="kanit-bold fs40px border-bot">Активности</p>
+        <p class="title-font fs40px border-bot">Активности</p>
         <div class="border-green kanit-reg">
             <form action="{{ url_for('project_detail', project_name=project.name) }}" method="POST">
                 <div class="form-group">
@@ -103,7 +104,7 @@
         </div>
     </div>
     <div class="project-detail-block">
-        <p class="kanit-bold fs40px border-bot">Вложения & Профит</p>
+        <p class="title-font fs40px border-bot">Вложения & Профит</p>
         <div class="moneyways border-green">
             <div id="profit">
 

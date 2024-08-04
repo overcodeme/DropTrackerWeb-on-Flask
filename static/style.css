@@ -127,10 +127,19 @@ header {
     margin: 20px auto;
 }
 
-.filters {
+.filter-elem {
+    min-width: 80px;
     display: flex;
-    justify-content: space-evenly;
-    width: 700px;
+    justify-content: center;
+    transition: 0.2s linear;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.filter-elem:hover {
+    border: 1px solid black;
+    background-color: LightGrey;
+    cursor: pointer;
 }
 
 #search-input {
@@ -209,12 +218,10 @@ header {
     fill: #007bff; /* Цвет при наведении */
 }
 
-/* Стили для таблицы проектов */
 .projects-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    font-family: 'Roboto', sans-serif; /* Пример использования Google Font */
 }
 
 .projects-table thead {
@@ -226,7 +233,6 @@ header {
 .projects-table th, .projects-table td {
     padding: 15px;
     border: 1px solid black;
-    text-align: left;
 }
 
 .projects-table th {
@@ -431,6 +437,7 @@ h1 {
     display: flex;
     justify-content: space-evenly;
     padding: 10px;
+    width: 95%;
 }
 
 .category p {
