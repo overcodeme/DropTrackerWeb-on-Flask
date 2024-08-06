@@ -17,3 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const filters = ['all', 'active', 'daily', 'social', 'testnets', 'completed'];
+
+    filters.forEach(filter => {
+        document.getElementById(`filter-${filter}`).addEventListener('click', () => {
+            window.location.href = `/?filter=${filter}`;
+        });
+    });
+});

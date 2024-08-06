@@ -239,11 +239,6 @@ header {
     font-size: 18px; /* Размер шрифта для заголовков */
 }
 
-.projects-table td {
-    font-size: 14px; /* Размер шрифта для данных */
-    border: 1px solid black;
-}
-
 /* Выделение строк для дейликов */
 .projects-table tr.highlight {
     background-color: #FFDEAD !important; /* Цвет для дейликов с !important */
@@ -426,7 +421,7 @@ h1 {
     display: flex;
     position: absolute;
     top: 270px;
-    right: 630px;
+    right: 700px;
 }
 
 .edit-buttons svg {

@@ -8,22 +8,22 @@
             <input type="text" id="search-input" placeholder="Название проекта">
             <button id="search-button">Поиск</button>
         </div>
-        <div>
+        <div id="filter-all">
             <p class="kanit-bold filter-elem">Все</p>
         </div>
-        <div>
+        <div id="filter-active">
             <p class="kanit-bold filter-elem">Активные</p>
         </div>
-        <div>
+        <div id="filter-daily">
             <p class="kanit-bold filter-elem">Дэйлики</p>
         </div>
-        <div>
+        <div id="filter-social">
             <p class="kanit-bold filter-elem">Социалки</p>
         </div>
-        <div>
+        <div id="filter-testnets">
             <p class="kanit-bold filter-elem">Тестнеты</p>
         </div>
-        <div>
+        <div id="filter-completed">
             <p class="kanit-bold filter-elem">Завершённые</p>
         </div>
     </div>
@@ -45,6 +45,7 @@
         <table class="projects-table kanit-reg">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Название</th>
                     <th>Тип</th>
                     <th>Аирдроп</th>
@@ -56,12 +57,39 @@
             <tbody>
             {% for project in projects %}
             <tr class="{{ 'highlight' if project.daily == 1 else '' }}">
-                <td><a href="{{ url_for('project_detail', project_name=project.name) }}">{{ project.name }}</a></td>
-                <td>{{ project.type }}</td>
-                <td>{{ project.airdrop_status }}</td>
-                <td>{{ project.joining_date.strftime('%d.%m.%Y') if project.joining_date else 'Не указана' }}</td>
-                <td><a href="{{ project.cryptorank_link }}" target="_blank">Ссылка</a></td>
-                <td>{{ project.description }}</td>
+                <td class="fs20px">
+                    <p>
+                        {{ project.id }}
+                    </p>
+                </td>
+                <td class="fs20px">
+                    <a href="{{ url_for('project_detail', project_name=project.name) }}">
+                        {{ project.name }}
+                    </a>
+                </td>
+                <td class="fs20px">
+                    <p>
+                        {{ project.type }}
+                    </p>
+                </td>
+                <td class="fs20px">
+                    <p>
+                        {{ project.airdrop_status }}
+                    </p>
+                </td>
+                <td class="fs20px">
+                    <p>
+                        {{ project.joining_date.strftime('%d.%m.%Y') if project.joining_date else 'Не указана' }}
+                    </p>
+                </td>
+                <td class="fs20px">
+                    <a href="{{ project.cryptorank_link }}" target="_blank">Ссылка</a>
+                </td>
+                <td>
+                    <p>
+                        {{ project.description }}
+                    </p>
+                </td>
             </tr>
             {% endfor %}
             </tbody>

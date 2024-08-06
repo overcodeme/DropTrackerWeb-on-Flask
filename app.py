@@ -17,7 +17,23 @@ def create_app():
 
     @app.route('/')
     def index():
+        filter_type = request.args.get('filter', 'Все')
         projects = CryptoProject.query.all()
+        print(request.args)
+
+        if filter_type == 'all':
+            projects = CryptoProject.query.all()
+        elif filter_type == 'active':
+            projects = CryptoProject.query.filter_by(is_active=True).all()
+        elif filter_type == 'daily':
+            projects = CryptoProject.query.filter_by(daily=True).all()
+        elif filter_type == 'social':
+            projects = CryptoProject.query.filter_by(type='Социалки').all()
+        elif filter_type == 'testnets':
+            projects = CryptoProject.query.filter_by(type='Тестнет').all()
+        elif filter_type == 'completed':
+            projects = CryptoProject.query.filter_by(is_active=False).all()
+
         return render_template('index.html', projects=projects)
 
     @app.route('/add', methods=['GET', 'POST'])
@@ -75,6 +91,7 @@ def create_app():
 
             return redirect(url_for('index'))
 
+        print(request.args)
         return render_template('project_detail.html', project=project, links=links)
 
     @app.route('/edit_project/<string:project_name>', methods=['GET', 'POST'])
