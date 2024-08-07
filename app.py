@@ -18,21 +18,30 @@ def create_app():
     @app.route('/')
     def index():
         filter_type = request.args.get('filter', 'Все')
-        projects = CryptoProject.query.all()
-        print(request.args)
+        search_query = request.args.get('search', '')
+
+        print(filter_type)
+        print(search_query)
+
+        projects = CryptoProject.query
 
         if filter_type == 'all':
             projects = CryptoProject.query.all()
         elif filter_type == 'active':
-            projects = CryptoProject.query.filter_by(is_active=True).all()
+            projects = CryptoProject.filter_by(is_active=True).all()
         elif filter_type == 'daily':
-            projects = CryptoProject.query.filter_by(daily=True).all()
+            projects = CryptoProject.filter_by(daily=True).all()
         elif filter_type == 'social':
-            projects = CryptoProject.query.filter_by(type='Социалки').all()
+            projects = CryptoProject.filter_by(type='Социалки').all()
         elif filter_type == 'testnets':
-            projects = CryptoProject.query.filter_by(type='Тестнет').all()
+            projects = CryptoProject.filter_by(type='Тестнет').all()
         elif filter_type == 'completed':
-            projects = CryptoProject.query.filter_by(is_active=False).all()
+            projects = CryptoProject.filter_by(is_active=False).all()
+
+        if search_query:
+            projects = projects.filter(CryptoProject.name.ilike(f'%{search_query}%'))
+
+        projects = projects.all()
 
         return render_template('index.html', projects=projects)
 
@@ -91,7 +100,6 @@ def create_app():
 
             return redirect(url_for('index'))
 
-        print(request.args)
         return render_template('project_detail.html', project=project, links=links)
 
     @app.route('/edit_project/<string:project_name>', methods=['GET', 'POST'])
