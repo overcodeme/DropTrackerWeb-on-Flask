@@ -25,18 +25,16 @@ def create_app():
 
         projects = CryptoProject.query
 
-        if filter_type == 'all':
-            projects = CryptoProject.query.all()
-        elif filter_type == 'active':
-            projects = CryptoProject.filter_by(is_active=True).all()
+        if filter_type == 'active':
+            projects = projects.filter_by(is_active=True)
         elif filter_type == 'daily':
-            projects = CryptoProject.filter_by(daily=True).all()
+            projects = projects.filter_by(daily=True)
         elif filter_type == 'social':
-            projects = CryptoProject.filter_by(type='Социалки').all()
+            projects = projects.filter_by(type='Социалки')
         elif filter_type == 'testnets':
-            projects = CryptoProject.filter_by(type='Тестнет').all()
+            projects = projects.filter_by(type='Тестнет')
         elif filter_type == 'completed':
-            projects = CryptoProject.filter_by(is_active=False).all()
+            projects = projects.filter_by(is_active=False)
 
         if search_query:
             projects = projects.filter(CryptoProject.name.ilike(f'%{search_query}%'))
@@ -81,12 +79,12 @@ def create_app():
     @app.route('/project/<string:project_name>', methods=['GET', 'POST'])
     def project_detail(project_name):
         project = CryptoProject.query.filter_by(name=project_name).first_or_404()
-        links = ProjectLinks.query.filter_by(id=project.id).all()
+        links = ProjectLinks.query.filter_by(project_id=project.id).all()
 
         if request.method == 'POST':
             activity_name = request.form['activity_name']
             activity_link = request.form['activity_link']
-            creating_date = datetime.now().strftime('%d-%m-%Y')
+            creating_date = datetime.now().strftime('%d.%m.%Y')
 
             new_link = ProjectLinks(
                 activity_name=activity_name,
@@ -98,8 +96,9 @@ def create_app():
             db.session.add(new_link)
             db.session.commit()
 
-            return redirect(url_for('index'))
+            return redirect(url_for('project_detail', project_name=project.name))
 
+        print(links)
         return render_template('project_detail.html', project=project, links=links)
 
     @app.route('/edit_project/<string:project_name>', methods=['GET', 'POST'])
