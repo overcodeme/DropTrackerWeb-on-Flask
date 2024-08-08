@@ -58,7 +58,7 @@
             </thead>
             <tbody>
             {% for project in projects %}
-            <tr class="{{ 'highlight' if project.daily == 1 else '' }}">
+            <tr class="{{ 'highlight1' if project.is_active == 0 else 'highlight2' if project.daily == 1 else None}}">
                 <td class="fs20px">
                     <p>
                         {{ project.id }}

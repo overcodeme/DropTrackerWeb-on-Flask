@@ -243,9 +243,12 @@ header {
     font-size: 18px; /* Размер шрифта для заголовков */
 }
 
-/* Выделение строк для дейликов */
-.projects-table tr.highlight {
-    background-color: #FFDEAD !important; /* Цвет для дейликов с !important */
+.projects-table tr.highlight2 {
+    background-color: #FFDEAD !important;
+}
+
+.projects-table tr.highlight1 {
+    background-color: Lime !important;
 }
 
 /* Стили для ссылок в таблице */
