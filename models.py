@@ -8,6 +8,7 @@ class CryptoProject(db.Model):
     name = db.Column(db.String(100), nullable=False)
     type = db.Column(db.String(100))
     daily = db.Column(db.Boolean)
+    fundraising = db.Column(db.Float)
     airdrop_status = db.Column(db.String(50))
     description = db.Column(db.Text)
     thoughts = db.Column(db.String)

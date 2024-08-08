@@ -78,7 +78,13 @@
         {% endfor %}
     </div>
     <div class="project-detail-block">
-        <p class="kanit-bold fs40px border-bot">{{ project.name }}</p>
+        {% if project.fundraising %}
+            <p class="kanit-bold fs40px border-bot">{{ project.name }}&nbsp(${{ project.fundraising }}M)</p>
+        {% else %}
+            <p class="kanit-bold fs40px border-bot">
+                {{ project.name }}
+            </p>
+        {% endif %}
         <div class="border-grey">
             {% if project.description %}
                 <p class="kanit-reg">
@@ -96,7 +102,7 @@
                     {{ project.thoughts }}
                 </p>
             {% else %}
-                <p class="kanit-reg">
+                <p class="kanit-bold fs30px">
                     Мысли о проекте...
                 </p>
             {% endif %}

@@ -24,6 +24,10 @@
             </select>
         </div>
         <div class="form-group kanit-reg">
+            <label for="fundraising">Инвестиции</label>
+            <input type="number" id="fundraising" name="fundraising" class="form-control">
+        </div>
+        <div class="form-group kanit-reg">
             <label for="daily">Дейлик?</label>
             <select id="daily" name="daily" class="form-control">
                 <option value=1 {% if project.daily == 1 %}selected{% endif %}>Да</option>

@@ -48,17 +48,16 @@ def create_app():
         if request.method == 'POST':
             name = request.form['name']
             type_ = request.form['type']
+            fundraising = request.form['fundraising']
             daily = request.form['daily']
             daily = 1 if daily=='Да' else 0
-            airdrop_status = request.form.get('airdrop_status')
-            description = request.form.get('description')
-            joining_date = request.form.get('joining_date')
-            cryptorank_link = request.form.get('cryptorank_link')
+            airdrop_status = request.form['airdrop_status']
+            description = request.form['description']
+            joining_date = request.form['joining_date']
+            cryptorank_link = request.form['cryptorank_link']
 
-            # Преобразуем строку даты в объект datetime
             joining_date = datetime.strptime(joining_date, '%Y-%m-%d') if joining_date else None
 
-            # Создаем новый объект CryptoDrop
             new_project = CryptoProject(
                 name=name,
                 type=type_,
@@ -66,7 +65,8 @@ def create_app():
                 airdrop_status=airdrop_status,
                 description=description,
                 joining_date=joining_date,
-                cryptorank_link=cryptorank_link
+                cryptorank_link=cryptorank_link,
+                fundraising=fundraising
             )
 
             db.session.add(new_project)
@@ -108,6 +108,7 @@ def create_app():
         if request.method == 'POST':
             project.name = request.form['name']
             project.type = request.form['type']
+            project.fundraising = request.form['fundraising']
             project.daily = int(request.form.get('daily'))
             project.airdrop_status = request.form.get('airdrop_status')
             project.description = request.form.get('description')
