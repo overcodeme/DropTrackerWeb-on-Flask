@@ -3,8 +3,20 @@ a {
     color: black;
 }
 
+.flex_direction-column {
+    flex-direction: column;
+}
+
+.hover-underline:hover {
+    text-decoration: underline;
+}
+
 .column {
     flex-direction: column;
+}
+
+.wrap {
+    word-wrap: break-word;
 }
 
 .flex {

@@ -17,7 +17,7 @@ class CryptoProject(db.Model):
     is_active = db.Column(db.Boolean, default=True)
     profit = db.Column(db.Float, default=0)
 
-    project_links = db.relationship('ProjectLinks', backref='project', lazy=True)
+    project_links = db.relationship('ProjectLinks', backref='project', cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<Криптопроект {self.name}>"
@@ -28,7 +28,7 @@ class ProjectLinks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     activity_name = db.Column(db.String(100))
     activity_link = db.Column(db.String(100))
-    project_id = db.Column(db.Integer, db.ForeignKey('crypto_project.id'), nullable=False)
+    project_id = db.Column(db.Integer, db.ForeignKey('crypto_project.id'))
     creating_date = db.Column(db.String)
 
     def __repr__(self):

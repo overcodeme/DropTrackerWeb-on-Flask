@@ -123,9 +123,10 @@ def create_app():
 
         return render_template('edit_project.html', project=project)
 
-    @app.route('/delete_project/<string:project_name>', methods=['POST'])
-    def delete_project(project_name):
-        project = CryptoProject.query.get(project_name)
+    @app.route('/delete_project/<int:project_id>', methods=['POST'])
+    def delete_project(project_id):
+        project = CryptoProject.query.get(project_id)
+        print(project)
         db.session.delete(project)
         db.session.commit()
         return redirect(url_for('index'))
